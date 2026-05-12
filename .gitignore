@@ -81,3 +81,6 @@ memory/test_credentials.md
 # Mobile development
 android-sdk/projeto.zip
 projeto.zip
+.env
+backend/.env
+frontend/.env
