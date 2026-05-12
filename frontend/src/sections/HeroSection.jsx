@@ -55,7 +55,7 @@ export const HeroSection = ({ onContactClick }) => {
       </FadeIn>
 
       {/* Heading + Portrait container */}
-      <div className="relative flex-1 w-full">
+      <div className="relative flex-1 w-full flex items-center justify-center">
         {/* Portrait centered absolutely - in front of heading */}
         <div className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center">
           <FadeIn
@@ -87,7 +87,7 @@ export const HeroSection = ({ onContactClick }) => {
           delay={0.15}
           y={40}
           data-testid="hero-heading"
-          className="hero-heading relative z-20 w-full text-center font-black uppercase tracking-tight leading-none mt-12 sm:mt-16 px-2"
+          className="hero-heading relative z-20 w-full text-center font-black uppercase tracking-tight leading-none px-2"
           style={{
             fontSize: "clamp(2rem, 10vw, 12rem)",
             whiteSpace: "normal",
