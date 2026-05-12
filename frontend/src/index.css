@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#root {
+    background: #0C0C0C;
+    font-family: 'Kanit', sans-serif;
+    color: #D7E2EA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow-x: clip;
+}
+
+.hero-heading {
+    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Marquee animations - no scroll dependency */
+@keyframes marquee-right {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-33.333%);
+    }
+}
+
+@keyframes marquee-left {
+    from {
+        transform: translateX(-33.333%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.marquee-track-right {
+    animation: marquee-right 30s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track-left {
+    animation: marquee-left 30s linear infinite;
+    will-change: transform;
+}
+
+/* Pill button (Contact / LiveProject) */
+.pill-btn {
+    position: relative;
+    overflow: visible;
+    z-index: 0;
+    background: #0C0C0C;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 9999px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: color 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.pill-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #ffffff;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.pill-btn:hover {
+    color: #0C0C0C;
+}
+
+.pill-btn:hover::before {
+    transform: scaleX(1);
+}
+
+/* Liquid glass card */
+.glass-card {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15),
+        0 0 60px rgba(180, 180, 255, 0.1);
+    filter: brightness(1.1);
+}
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 8, 10, 0.7);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.modal-card {
+    background: linear-gradient(180deg, rgba(28, 28, 32, 0.9) 0%, rgba(14, 14, 16, 0.92) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    padding: 2rem;
+    max-width: 460px;
+    width: 100%;
+    color: #D7E2EA;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(180, 180, 255, 0.08);
+    position: relative;
+}
+
+.modal-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 0.85rem 1.1rem;
+    border-radius: 14px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.modal-input::placeholder {
+    color: rgba(215, 226, 234, 0.45);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.modal-input:focus {
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+::selection {
+    background: #BBCCD7;
+    color: #0C0C0C;
+}
